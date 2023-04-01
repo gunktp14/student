@@ -36,6 +36,12 @@
 
         }
 
+        public function delete_student(){
+            $student_id = $_POST['student_id'];
+            include './src/views/ps_list.php';
+
+        }
+
         public function mvcHandler(){
             $Route = isset($_GET['route']) ? $_GET['route'] : NULL;
             switch($Route){
@@ -71,6 +77,15 @@
                     }else{
                         echo "Loop 1";
                         $this->list_phone_Page();
+                    }
+                break;
+                case"delete":
+                    $student_id = isset($_GET['student_id']) ? $_GET['student_id']: NULL ;
+                    if($student_id !== NULL){
+                        $this->ps_model->deleteStudent($student_id);
+                        $this->list_phone_Page();
+                    }else{
+                        $_SESSION['error'] = "เกิดข้อผิดพลาดในการลบ";
                     }
                 break;
                 default:

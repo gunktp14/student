@@ -49,6 +49,8 @@
                         <p class="card-text"><b>วัน-เดือน-ปี เกิด : </b> <?= $row['brith_day'] ?></p>
                         <p class="card-text"><b>อายุ : </b> <?= $row['age'] ?></p>
                         <p class="card-text"><small class="text-muted"></small></p>
+                        </p>
+                        <a class="btn btn-danger" href="?route=delete&student_id=<?=$row['student_id']?>" onclick="return confirm('คุณต้องการลบ นักเรียนคนนี้ใช่หรือไม่?')">Delete</a>
               </div>
             </div>
         <?php

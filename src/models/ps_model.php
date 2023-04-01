@@ -77,6 +77,18 @@
                 return false;
             }
         }
+
+        public function deleteStudent($student_id){
+           $sql = "DELETE FROM student_tb WHERE student_id = :student_id";
+           $query = $this->condb->prepare($sql);
+           $query->bindParam(':student_id',$student_id);
+           try{
+            $query->execute();
+            return true;
+           }catch(Exception $err){
+            return false;
+           }
+        }
         
 
 
