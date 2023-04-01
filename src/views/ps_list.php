@@ -33,11 +33,11 @@
         <?php
             if($result > 0){
                 foreach($result as $row){ 
-        ?>      <div class="col-3">
+        ?>      
 
-                <div class="card border-secondary mb-3" style="max-width: 30rem;">
+              <div class="card mb-3 m-1" style="max-width: 25rem;">
               <div class="flex-box card-header bg-transparent border-secondary">
-                  <img src="<?=$row['img']?>" width="80px" height="100px" alt="">
+                  <img src="<?=$row['img']?>" style="margin-right:5px;" width="80px" height="100px" alt="">
                         <div class="blox">
                         <p class="card-text"><b> ชื่อ-สกุล : </b> <?= $row['name']?></p>
                         <p class="card-text"><b> รหัสนักศึกษา : </b> <?= $row['student_id'] ?></p>
@@ -57,6 +57,57 @@
             }
             
         ?>
+        </div>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="?route=add" method="POST" enctype="multi-part/form-data">
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Name:</label>
+                  <input type="text" class="form-control" id="recipient-name" name="name">
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Student ID:</label>
+                  <input type="number" class="form-control" id="message-text" name="student_id"></input>
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Major:</label>
+                  <input type="text" class="form-control" id="message-text" name="major"></input>
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Number ID:</label>
+                  <input type="number" class="form-control" id="message-text" name="number_id"></input>
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Brith Day:</label>
+                  <input type="date" class="form-control" id="message-text" name="brith_day"></input>
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Age:</label>
+                  <input type="number" class="form-control" id="message-text" name="age"></input>
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Img:</label>
+                  <input type="text" class="form-control" id="message-text" name="img"></input>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary" name="submit_add">Submit Add</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="d-grid gap-1">
+          <button type="button" style="width:300px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Add student +</button>
         </div>
 
         <!-- Footer -->

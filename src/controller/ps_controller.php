@@ -30,6 +30,12 @@
 
         }
 
+        public function list_student(){
+            $student_id = $_POST['student_id'];
+            include './src/views/ps_list.php';
+
+        }
+
         public function mvcHandler(){
             $Route = isset($_GET['route']) ? $_GET['route'] : NULL;
             switch($Route){
@@ -45,6 +51,28 @@
                         $this->list_phone_Page();
                     }
                 break; 
+                case"add": 
+                    if(isset($_POST['submit_add'])){
+                        $name = $_POST['name'];
+                        $student_id = $_POST['student_id'];
+                        $major = $_POST['major']; 
+                        $number_id = $_POST['number_id'];
+                        $brith_day = $_POST['brith_day'];
+                        $age = $_POST['age'];
+                        $img = $_POST['img'];
+                        $result = $this->ps_model->addStudent($name,$student_id,$major,$number_id,$brith_day,$age,$img); 
+                            if($result === true){
+
+                                $this->list_phone_Page();
+                            }else{  
+                                echo "Loop 2";
+                                $this->list_phone_Page();
+                            }
+                    }else{
+                        echo "Loop 1";
+                        $this->list_phone_Page();
+                    }
+                break;
                 default:
                     $this->list_phone_Page();
                 break;

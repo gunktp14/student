@@ -60,6 +60,23 @@
                 return false;
             }
         }
+
+        public function addStudent($name,$student_id,$major,$number_id,$brith_day,$age,$img){
+            $sql = "INSERT INTO `student_tb` (`name`, `student_id`, `major`, `number_id`, `brith_day`, `age`, `img`) VALUES (:name, :student_id, :major, :number_id, :brith_day, :age, :img);";
+            $query = $this->condb->prepare($sql);
+            $query->bindParam(':name',$name);
+            $query->bindParam(':student_id',$student_id);
+            $query->bindParam(':major',$major);
+            $query->bindParam(':number_id',$number_id);
+            $query->bindParam(':brith_day',$brith_day);
+            $query->bindParam(':age',$age);
+            $query->bindParam(':img',$img);
+            if($query->execute()){
+                return true;
+            }else {
+                return false;
+            }
+        }
         
 
 
