@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2023 at 06:21 PM
+-- Generation Time: Apr 01, 2023 at 04:03 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -42,7 +42,9 @@ CREATE TABLE `student_tb` (
 --
 
 INSERT INTO `student_tb` (`name`, `student_id`, `major`, `number_id`, `brith_day`, `age`, `img`) VALUES
-('กัตพัตร์ สมหวัง', 644259003, 'วิศวกรรมซอฟเเวร์', 1739902047, '2013-03-06', 20, 'public/images/kuttapat.jpg');
+('เเมว', 141241, 'บริหาร', 234153515, '2023-04-06', 20, 'public/images/kuttapat.jpg'),
+('หมู', 666133, 'วิศวกรรมซอฟเเวร์', 12324567, '2023-04-01', 21, 'public/images/kuttapat.jpg'),
+('กัตพัตร์ สมหวัง', 644259003, 'วิศวกรรมซอฟเเวร์ ', 1739902546, '2013-03-07', 22, 'public/images/kuttapat.jpg');
 
 --
 -- Indexes for dumped tables

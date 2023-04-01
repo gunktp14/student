@@ -50,7 +50,7 @@
         }
 
         public function search_keyword($keyword){
-            $sql = "SELECT * FROM `phone_tb` WHERE `product_name` LIKE '%$keyword%' ";
+            $sql = "SELECT * FROM `student_tb` WHERE `name` LIKE '%$keyword%' ";
             $query = $this->condb->prepare($sql);
             if($query->execute()){
                 $result = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -78,6 +78,8 @@
             }
         }
 
+        
+
         public function deleteStudent($student_id){
            $sql = "DELETE FROM student_tb WHERE student_id = :student_id";
            $query = $this->condb->prepare($sql);
@@ -91,6 +93,35 @@
         }
         
 
+        public function editStudent($name,$student_id,$major,$number_id,$brith_day,$age,$img){
+            $sql = "UPDATE `student_tb` SET `name` = :name, `student_id` = :student_id, `major` = :major, `number_id` = :number_id, `brith_day` = :brith_day, `age` = :age, `img` = :img WHERE `student_tb`.`student_id` = :student_id;";
+            $query = $this->condb->prepare($sql);
+            $query->bindParam(':name',$name);
+            $query->bindParam(':student_id',$student_id);
+            $query->bindParam(':major',$major);
+            $query->bindParam(':number_id',$number_id);
+            $query->bindParam(':brith_day',$brith_day);
+            $query->bindParam(':age',$age);
+            $query->bindParam(':img',$img);
+            if($query->execute()){
+                return true;
+            }else {
+                return false;
+            }
+        }
+
+        public function getDetail($student_id){
+            $sql = "SELECT * FROM `student_tb` WHERE `student_id` = :student_id";
+            $query = $this->condb->prepare($sql);
+            $query->bindParam(':student_id',$student_id,PDO::PARAM_INT);
+            if($query->execute()){
+                $result = $query->fetch(PDO::FETCH_ASSOC);
+                return $result;
+                return true;
+            }else {
+                return false;
+            }
+        }
 
 
     }

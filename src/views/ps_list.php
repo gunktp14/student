@@ -51,6 +51,51 @@
                         <p class="card-text"><small class="text-muted"></small></p>
                         </p>
                         <a class="btn btn-danger" href="?route=delete&student_id=<?=$row['student_id']?>" onclick="return confirm('คุณต้องการลบ นักเรียนคนนี้ใช่หรือไม่?')">Delete</a>
+                        <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit_modal<?= $row['student_id']?>" data-bs-whatever="@getbootstrap">Edit</a>
+
+                  <div class="modal fade" id="edit_modal<?= $row['student_id']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                        <button type="button" class="btn-close disabled" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form action="?route=edit" method="POST" enctype="multi-part/form-data">
+                          <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="recipient-name" name="name" value="<?= $row['name']?>">
+                          </div>
+                          <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Major:</label>
+                            <input type="text" class="form-control" id="message-text" value="<?= $row['major']?>" name="major"></input>
+                          </div>
+                          <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Number ID:</label>
+                            <input type="number" class="form-control" id="message-text" value="<?= $row['number_id']?>" name="number_id"></input>
+                          </div>
+                          <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Brith Day:</label>
+                            <input type="date" class="form-control" id="message-text" value="<?= $row['brith_day']?>" name="brith_day"></input>
+                          </div>
+                          <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Age:</label>
+                            <input type="number" class="form-control" id="message-text" value="<?= $row['age']?>" name="age"></input>
+                          </div>
+                          <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Img:</label>
+                            <input type="text" class="form-control" id="message-text" value="<?= $row['img']?>" name="img"></input>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" name="submit_edit">Submit Edit</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
         <?php
@@ -60,6 +105,7 @@
             
         ?>
         </div>
+
 
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
